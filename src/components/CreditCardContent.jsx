@@ -1,16 +1,19 @@
-
+import {CreditBack} from './CreditBack'
+import { CreditFront } from './CreditFront'
 import '../index.css'
-export const CreditCardContent = () => {
+import propTipes from 'prop-types'
+
+
+
+export const CreditCardContent = ({data}) => {
+  
   return (
     <div className='flex flex-col justify-center items-center relative'>
-    <div className='h-[157px] w-[286px] bg-card-credit-back bg-cover bg-center mt-[32px] ml-[30px]'>
-        
-    </div>
-
-    <div className='h-[157px] w-[286px] bg-card-credit-front bg-cover bg-center  absolute bottom-[-90px] left-5 '>
-          
-    </div>
-    
+    <CreditBack resultado={data}/>
+    <CreditFront resultado={data}/>
     </div>
   )
+}
+CreditCardContent.propTypes = {
+    data: propTipes.object.isRequired,
 }

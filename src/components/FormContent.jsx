@@ -1,7 +1,28 @@
+import { useState } from 'react';
 import '../index.css'
+import propTypes from 'prop-types';
 
-export const FormContent = () => {
-  
+
+
+export const FormContent = ({onInputChange}) => {
+  const [cardHolder, setCardHolde] =  useState('')
+  const [cardNumber, setCardNumber] =  useState('')
+  const [expiryDateMm, setExpiryDateMm] =  useState('')
+  const [expiryDateYy, setExpiryDateYy] =  useState('')
+  const [cvv, setCvv] =  useState('')
+
+  const handleInputChange = (e, setterFunction) => {
+    const value = e.target.value
+    setterFunction(value)
+    onInputChange({
+      cardHolder,
+      cardNumber,
+      expiryDateMm,
+      expiryDateYy,
+      cvv,
+    })
+    console.log(value)
+  }
   return (
     <div className='h-full w-[330px] mt-[93px] '>
       <form>
@@ -12,7 +33,8 @@ export const FormContent = () => {
           <input
               className='h-[45px] w-full border border-active-input-border rounded-md p-[10px] mt-[12px] text-gray-300' 
               type="text"
-              value="cardhoder"
+              value={cardHolder}
+              onChange={(e) => handleInputChange(e, setCardHolde)}
               placeholder='jond doe'
               />
          </div>
@@ -24,7 +46,8 @@ export const FormContent = () => {
           <input
               className='h-[45px] w-full border border-active-input-border rounded-md p-[10px] mt-[12px] text-gray-300' 
               type="text"
-              value="cardnumber"
+              value={cardNumber}
+              onChange={(e) => handleInputChange(e, setCardNumber)}
               placeholder='e.g. 1234 5678 9123 0000'
               />
          </div>
@@ -37,21 +60,24 @@ export const FormContent = () => {
           <input
               className='h-[45px] w-[75px] mr-[10px] border border-active-input-border rounded-md p-[10px] mt-[12px] text-gray-300'
               type="text"
-              value="mm"
+              value={expiryDateMm}
+              onChange={(e) => handleInputChange(e, setExpiryDateMm)}
               placeholder='MM' 
               />
 
               <input
               className='h-[45px] w-[75px] mr-[10px] border border-active-input-border rounded-md p-[10px] mt-[12px] text-gray-300' 
               type="text"
-              value="yy"
+              value={expiryDateYy}
+              onChange={(e) => handleInputChange(e, setExpiryDateYy)}
               placeholder='YY' 
               />
 
               <input
                className='h-[45px] w-[160px] border border-active-input-border rounded-md p-[10px] mt-[12px] text-gray-300' 
               type="text"
-              value="CVV"
+              value={cvv}
+              onChange={(e) => handleInputChange(e, setCvv)}
               placeholder='123' 
               />
           </div>
@@ -65,4 +91,8 @@ export const FormContent = () => {
       </form>
     </div>
   )
+
+}
+FormContent.propTypes = {
+  onInputChange: propTypes.func.isRequired,
 }
