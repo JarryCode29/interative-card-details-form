@@ -24,7 +24,7 @@ export const FormContent = ({onInputChange}) => {
     console.log(value)
   }
   return (
-    <div className='h-full w-[330px] mt-[93px] '>
+    <div className='h-full w-[330px] mt-[93px] lg:flex justify-center lg:items-center '>
       <form>
          <div className='flex flex-col justify-center text-very-dark-violet '>
          <label  >
