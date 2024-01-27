@@ -18,7 +18,7 @@ export const App = () => {
   }
   
   return (
-    <div className="h-screen w-[100%] bg-[black] text-white lg:flex lg:flex-row">
+    <div className="h-screen w-[100%] bg-white text-white lg:flex lg:flex-row">
       <div className='h-[240px] bg-bg-credit-card-mv lg:w-[481px] lg:bg-credit-card-desk lg:bg-no-repeat lg:h-[100%] lg:bg-cover'>
           <CreditCardContent 
           data={formData}

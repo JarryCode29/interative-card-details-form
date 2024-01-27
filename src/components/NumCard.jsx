@@ -6,7 +6,7 @@ export const NumCard = (dataNew) => {
   return (
     <>
     <div className="mt-[30px]">
-    <h1 className="text-[23px]">{dataNew.cardNumber}</h1>
+    <h1 className="text-[23px] lg:text-center lg:text-[34px]">{dataNew.cardNumber}</h1>
     </div>
     <div className="flex justify-between mt-[10px]">
         <h1 className="text-[12px]">{dataNew.cardHolder}</h1>
